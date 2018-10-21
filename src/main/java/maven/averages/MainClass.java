@@ -1,15 +1,15 @@
 package maven.averages;
 
 import java.util.Scanner;
-/**
- * Klasa zawierająca metodę main.
- * @author Admin
- */
 
-public class Main {
+/**
+ * Class contains main method.
+ * @author Piotr
+ */
+public class MainClass {
   /**
-  * Metoda main.
-  * @param args Parametry wywołania programu
+  * Main method.
+  * @param args Parameters of the program call.
   */
   public static void main(final String[] args) {
     Scanner input = new Scanner(System.in);

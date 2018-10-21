@@ -3,13 +3,27 @@ package maven.averages;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Class responsible for counting arithmetic average.
+ * @author Piotr
+ *
+ */
 public class ArithmeticAverage implements Average {
-  private final Scanner input;
+  /**
+  * Data Scanner.
+  */
+  private final transient Scanner input;
   
-  ArithmeticAverage() {
+  /**
+   * Default constructor.
+   */
+  public ArithmeticAverage() {
     input = new Scanner(System.in);
   }
   
+  /**
+   * Method for entering data.
+   */
   @Override
   public void enterData() {
     try {
@@ -32,6 +46,12 @@ public class ArithmeticAverage implements Average {
     }
   }
   
+  /**
+   * Method for calculating average.
+   * @param values Array with values from which average is calculated.
+   * @param weights Array with weights of each values.
+   * @return average from entered values.
+   */
   @Override
     public double calculateAverage(final double[] values, final int[] weights) {
     double sum = 0;
@@ -41,6 +61,12 @@ public class ArithmeticAverage implements Average {
     return sum / values.length;
   }
   
+  /**
+   * Method for printing data and average.
+   * @param values Array with values from which data are printed.
+   * @param weights Array with weights from which data are printed.
+   * @param avg Calculated average.
+   */
   @Override
     public void printData(final double[] values, final int[] weights, final double avg) {
     System.out.println("");

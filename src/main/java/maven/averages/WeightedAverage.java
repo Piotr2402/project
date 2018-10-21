@@ -3,13 +3,26 @@ package maven.averages;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Class responsible for calculating weighted average.
+ * @author Piotr
+ */
 public class WeightedAverage implements Average {
-  private final Scanner input;
+  /**
+   * Data Scanner.
+   */
+  private final transient Scanner input;
 
-  WeightedAverage() {
+  /**
+   * Default constructor.
+   */
+  public WeightedAverage() {
     input = new Scanner(System.in);
   }
   
+  /**
+   * Method for entering data.
+   */
   @Override
   public void enterData() {
     try {
@@ -24,7 +37,7 @@ public class WeightedAverage implements Average {
       for (int i = 0;i < number;i++) {
         System.out.print("Wprowadz wartosc" + (i + 1) + ": ");
         values[i] = input.nextDouble();
-        System.out.print("Wprowadz waga" + (i + 1) + ": ");
+        System.out.print("Wprowadz wage" + (i + 1) + ": ");
         weights[i] = input.nextInt();
       }
       double avg = calculateAverage(values, weights);
@@ -35,17 +48,29 @@ public class WeightedAverage implements Average {
     }
   }
   
+  /**
+   * Method for calculating average.
+   * @param values Array with values from which average is calculated.
+   * @param weights Array with weights of each values.
+   * @return average from entered values.
+   */
   @Override
-  public double calculateAverage(final double[] values,final int[] weight) {
+  public double calculateAverage(final double[] values,final int[] weights) {
     double sumv = 0;
     int sumw = 0;
     for (int i = 0;i < values.length;i++) {
-      sumv += values[i] * weight[i];
-      sumw += weight[i];
+      sumv += values[i] * weights[i];
+      sumw += weights[i];
     }
     return sumv / sumw;
   }
   
+  /**
+   * Method for printing data and average.
+   * @param values Array with values from which data are printed.
+   * @param weights Array with weights from which data are printed.
+   * @param avg Calculated average.
+   */
   @Override
   public void printData(final double[] values, final int[] weights, final double avg) {
     System.out.println("");
